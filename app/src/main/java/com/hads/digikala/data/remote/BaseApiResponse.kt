@@ -1,5 +1,6 @@
 package com.hads.digikala.data.remote
 
+import android.util.Log
 import com.hads.digikala.data.model.ResponseResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

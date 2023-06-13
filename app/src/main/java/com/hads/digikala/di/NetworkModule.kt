@@ -1,6 +1,5 @@
 package com.hads.digikala.di
 
-import com.hads.digikala.data.remote.ApiInterface
 import com.hads.digikala.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -32,6 +31,12 @@ object NetworkModule {
         .connectTimeout(Constants.TIMEOUT_IN_SECOND, TimeUnit.SECONDS)
         .readTimeout(Constants.TIMEOUT_IN_SECOND, TimeUnit.SECONDS)
         .writeTimeout(Constants.TIMEOUT_IN_SECOND, TimeUnit.SECONDS)
+        .addInterceptor {chain ->
+            val request = chain.request().newBuilder()
+                .addHeader("x-api-key",Constants.API_KEY)
+                .addHeader("lang",Constants.USER_LANGUAGE)
+            chain.proceed(request.build())
+        }
         .addInterceptor(interceptor())
         .build()
 
@@ -43,8 +48,4 @@ object NetworkModule {
         .client(okHttpClient)
         .build()
 
-    @Provides
-    @Singleton
-    fun provideApiInterface(retrofit: Retrofit) : ApiInterface =
-        retrofit.create(ApiInterface::class.java)
 }

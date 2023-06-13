@@ -5,6 +5,10 @@ plugins {
     id 'com.google.dagger.hilt.android'
 }
 
+def apiKeyPropertiesFile = rootProject.file("key.properties")
+def apiKeyProperties = new Properties()
+apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
+
 android {
     namespace 'com.hads.digikala'
     compileSdk 33
@@ -16,6 +20,7 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField("String" , "X_API_KEY", apiKeyProperties['X_API_KEY'])
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary true
