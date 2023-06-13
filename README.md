@@ -28,6 +28,7 @@ Compose Navigation
 - [x] Add Splash Screen
 - [x] Add Top Slider
 - [x] Add SearchBar
+- [x] Add Swipe Refresh
 - [ ] Add Other Item Home Page
 - [ ] Add Category Page
 - [ ] Add Cart Page
