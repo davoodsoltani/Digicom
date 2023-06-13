@@ -24,7 +24,7 @@ fun Home(
     navController: NavHostController,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    LaunchedEffect(true){
+    LaunchedEffect(true) {
         refreshDataFromServer(viewModel)
     }
 
@@ -32,7 +32,7 @@ fun Home(
 }
 
 @Composable
-fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewModel){
+fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewModel) {
     val refreshScope = rememberCoroutineScope()
     val swipeRefreshState = rememberSwipeRefreshState(isRefreshing = false)
     SwipeRefresh(
@@ -40,17 +40,18 @@ fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewMod
         onRefresh = {
             refreshScope.launch {
                 refreshDataFromServer(viewModel)
-                Log.e("swipRefresh","swipeRefreshState")
+                Log.e("swipRefresh", "swipeRefreshState")
             }
         }) {
 
-        LazyColumn(modifier = Modifier.fillMaxWidth()){
+        LazyColumn(modifier = Modifier.fillMaxWidth()) {
             item { SearchBarSection() }
             item { TopSliderSection() }
+            item { ShowCaseSection(navController) }
         }
     }
 }
 
-private suspend fun refreshDataFromServer(viewModel: HomeViewModel){
+private suspend fun refreshDataFromServer(viewModel: HomeViewModel) {
     viewModel.getSlider()
 }
