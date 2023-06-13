@@ -22,16 +22,16 @@ Compose Navigation
 
 #### Features
 
--[x] Add Navigation Compose
--[x] Add Multi Language
--[x] Add Bottom Navigation
--[x] Add Splash Screen
--[x] Add Top Slider
--[x] Add SearchBar
--[ ] Add Other Item Home Page
--[ ] Add Category Page
--[ ] Add Cart Page
--[ ] Add Profile Page
--[ ] .
--[ ] .
--[ ] .
+- [x] Add Navigation Compose
+- [x] Add Multi Language
+- [x] Add Bottom Navigation
+- [x] Add Splash Screen
+- [x] Add Top Slider
+- [x] Add SearchBar
+- [ ] Add Other Item Home Page
+- [ ] Add Category Page
+- [ ] Add Cart Page
+- [ ] Add Profile Page
+- [ ] .
+- [ ] .
+- [ ] .
