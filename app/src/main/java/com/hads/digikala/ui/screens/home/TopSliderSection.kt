@@ -40,11 +40,10 @@ import com.hads.digikala.ui.theme.localShape
 import com.hads.digikala.ui.theme.localSpacing
 import com.hads.digikala.viewmodel.HomeViewModel
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collectLatest
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalPagerApi::class)
 @Composable
-fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
+fun TopSliderSection(viewModel: HomeViewModel = hiltViewModel()) {
 
     var sliderList by remember {
         mutableStateOf<List<Slider>>(emptyList())
@@ -82,7 +81,7 @@ fun TopSlider(viewModel: HomeViewModel = hiltViewModel()) {
                 .fillMaxSize()
                 .padding(
                     horizontal = localSpacing.current.extraSmall,
-                    vertical = localSpacing.current.small
+                    vertical = localSpacing.current.extraSmall
                 )
         ) {
             val pagerState = rememberPagerState()

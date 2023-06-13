@@ -53,7 +53,7 @@ fun Splash() {
             contentAlignment = Alignment.BottomCenter
         ) {
             Image(
-                modifier = Modifier.size(30.dp),
+                modifier = Modifier.size(100.dp),
                 painter = painterResource(id = R.drawable.digi_txt_white),
                 contentDescription = null
             )
