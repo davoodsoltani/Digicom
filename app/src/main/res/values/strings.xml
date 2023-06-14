@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Digikala</string>
+    <string name="app_name">DigiCom</string>
     <string name="home">خانه</string>
     <string name="category">دسته‌بندی</string>
     <string name="basket">سبد‌خرید</string>
     <string name="profile">پروفایل</string>
     <string name="search_in">جستجو در</string>
-    <string name="digikala_jet">دیجی‌کالا جت</string>
+    <string name="digikala_jet">دیجیکام جت</string>
     <string name="digi_style">حراج استایل</string>
     <string name="digi_pay">دیجی پی</string>
     <string name="pindo">پیندو</string>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Digikala</string>
+    <string name="app_name">DigiCom</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="category">Category</string>
     <string name="basket">Basket</string>
     <string name="search_in">search in</string>
-    <string name="digikala_jet">Digikala Jet</string>
+    <string name="digikala_jet">Digicom Jet</string>
     <string name="digi_style">Digi Style</string>
     <string name="digi_pay">Digi Pay</string>
     <string name="pindo">Pindo</string>

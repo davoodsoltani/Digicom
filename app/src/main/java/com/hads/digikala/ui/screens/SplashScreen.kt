@@ -54,7 +54,7 @@ fun Splash() {
         ) {
             Image(
                 modifier = Modifier.size(100.dp),
-                painter = painterResource(id = R.drawable.digi_txt_white),
+                painter = painterResource(id = R.drawable.digi_white),
                 contentDescription = null
             )
         }

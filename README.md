@@ -7,10 +7,11 @@ An application similar to Digikala that has all its features.
 ##### Screenshot
 <table>
   <tr>
-    <td><img src="screenshot/splash.png" width=100% height=100%></td>
     <td><img src="screenshot/1.png" width=100% height=100%></td>
-    <td><img src="screenshot/4.png" width=100% height=100%></td>
     <td><img src="screenshot/2.png" width=100% height=100%></td>
+    <td><img src="screenshot/3.png" width=100% height=100%></td>
+    <td><img src="screenshot/4.png" width=100% height=100%></td>
+    <td><img src="screenshot/5.png" width=100% height=100%></td>
   </tr>
  </table>
 

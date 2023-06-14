@@ -39,8 +39,7 @@ fun SearchBarSection() {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(65.dp)
-            .background(Color.White),
+            .height(65.dp),
         elevation = localElevation.current.extraSmall
     ) {
         Box(
@@ -83,7 +82,7 @@ private fun SearchContent() {
         Image(
             modifier = Modifier
                 .width(80.dp)
-                .padding(start = 5.dp),
+                .padding(start = 5.dp, top = 5.dp),
             painter = digikalaLogoChangeByLanguage(), contentDescription = ""
         )
     }
@@ -92,8 +91,8 @@ private fun SearchContent() {
 @Composable
 private fun digikalaLogoChangeByLanguage(): Painter{
     return if (Constants.USER_LANGUAGE == Constants.ENGLISH_LANG){
-        painterResource(id = R.drawable.digi_red_english)
+        painterResource(id = R.drawable.digi_red)
     }else{
-        painterResource(id = R.drawable.digi_red_persian)
+        painterResource(id = R.drawable.digi_red)
     }
 }
