@@ -5,9 +5,13 @@ An application similar to Digikala that has all its features.
 > I am developing it
 
 ##### Screenshot
-![Alt text](screenshot/splash.png)
-![Alt text](screenshot/home.png)
-![Alt text](screenshot/home1.png)
+<table>
+  <tr>
+    <td><img src="screenshot/splash.png" width=270 height=480></td>
+    <td><img src="screenshot/home.png" width=270 height=480></td>
+    <td><img src="screenshot/home1.png" width=270 height=480></td>
+  </tr>
+ </table>
 
 ##### The following technologies are used to develop this application:
 ```
