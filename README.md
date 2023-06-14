@@ -34,6 +34,7 @@ Compose Navigation
 
 - [x] Add Navigation Compose
 - [x] Add Multi Language
+- [x] Add Multi Theme
 - [x] Add Bottom Navigation
 - [x] Add Splash Screen
 - [x] Add Top Slider
