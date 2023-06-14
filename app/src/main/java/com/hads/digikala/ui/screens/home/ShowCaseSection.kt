@@ -12,10 +12,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.hads.digikala.R
+import com.hads.digikala.navigation.Screen
 import com.hads.digikala.ui.components.RoundedIconBox
 import com.hads.digikala.ui.theme.amber
 import com.hads.digikala.ui.theme.grayCategory
 import com.hads.digikala.ui.theme.localSpacing
+import com.hads.digikala.utils.Constants
 
 @Composable
 fun ShowCaseSection(navController: NavController) {
@@ -37,23 +39,23 @@ fun ShowCaseSection(navController: NavController) {
             RoundedIconBox(
                 image = painterResource(id = R.drawable.digijet),
                 title = stringResource(id = R.string.digikala_jet),
-                onClick = {}
+                onClick = onBoxClick(navController,Constants.DIGIJET_URL),
             )
             RoundedIconBox(
                 image = painterResource(id = R.drawable.auction),
                 title = stringResource(id = R.string.digi_style),
-                onClick = {}
+                onClick = onBoxClick(navController,Constants.AUCTION_URL)
             )
             RoundedIconBox(
                 image = painterResource(id = R.drawable.digipay),
                 title = stringResource(id = R.string.digi_pay),
-                onClick = {}
+                onClick = onBoxClick(navController,Constants.DIGIPAY_URL)
             )
             RoundedIconBox(
                 image = painterResource(id = R.drawable.pindo),
                 title = stringResource(id = R.string.pindo),
                 bgColor = MaterialTheme.colors.amber,
-                onClick = {}
+                onClick = onBoxClick(navController,Constants.PINDO_URL)
             )
         }
 
@@ -66,24 +68,29 @@ fun ShowCaseSection(navController: NavController) {
             RoundedIconBox(
                 image = painterResource(id = R.drawable.shopping),
                 title = stringResource(id = R.string.digi_shopping),
-                onClick = {}
+                onClick = onBoxClick(navController,Constants.SHOPPING_URL)
             )
             RoundedIconBox(
                 image = painterResource(id = R.drawable.giftcard),
                 title = stringResource(id = R.string.gift_card),
-                onClick = {}
+                onClick = onBoxClick(navController,Constants.GIFT_CARD_URL)
             )
             RoundedIconBox(
                 image = painterResource(id = R.drawable.digiplus),
                 title = stringResource(id = R.string.digi_plus),
-                onClick = {}
+                onClick = onBoxClick(navController,Constants.DIGIPLUS_URL)
             )
             RoundedIconBox(
                 image = painterResource(id = R.drawable.more),
                 title = stringResource(id = R.string.more),
                 bgColor = MaterialTheme.colors.grayCategory,
-                onClick = {}
+                onClick = onBoxClick(navController,Constants.MORE_URL)
             )
         }
     }
+}
+
+@Composable
+fun onBoxClick(navController: NavController, url: String): () -> Unit = {
+    navController.navigate(route = Screen.WebView.route + "?url=${url}")
 }
