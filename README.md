@@ -1,4 +1,4 @@
-# Digikala
+# DigiCom
 
 An application similar to Digikala that has all its features.
 
