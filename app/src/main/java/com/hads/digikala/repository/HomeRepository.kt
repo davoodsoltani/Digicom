@@ -35,4 +35,8 @@ class HomeRepository @Inject constructor(private val api: HomeApiInterface) : Ba
         safeApiCall {
             api.getCenterBanners()
         }
+    suspend fun getBestsellerProducts(): NetworkResult<List<AmazingItem>> =
+        safeApiCall {
+            api.getBestsellerProducts()
+        }
 }

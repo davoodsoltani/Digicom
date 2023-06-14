@@ -4,6 +4,11 @@ An application similar to Digikala that has all its features.
 
 > I am developing it
 
+##### Screenshot
+![Alt text](screenshot/splash.png)
+![Alt text](screenshot/home.png)
+![Alt text](screenshot/home1.png)
+
 ##### The following technologies are used to develop this application:
 ```
 Kotlin
