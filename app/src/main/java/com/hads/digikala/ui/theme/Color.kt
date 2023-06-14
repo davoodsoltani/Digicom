@@ -25,6 +25,10 @@ val Colors.searchBarBg: Color
     @Composable
     get() = if (isLight) Color(0xFFF1F0EE) else Color(0xFF575A5E)
 
+val Colors.bottomBar: Color
+    @Composable
+    get() = if (isLight) Color(0xFFFFFFFF) else Color(0xFF303235)
+
 val Colors.darkText: Color
     @Composable
     get() = if (isLight) Color(0xFF414244) else Color(0xFFD8D8D8)
@@ -47,7 +51,7 @@ val Colors.digikalaLightRedText: Color
 
 val Colors.digikalaDarkRed: Color
     @Composable
-    get() = Color(0xFFe6123d)
+    get() = if (isLight) Color(0xFFe6123d) else Color(0xFF8D2633)
 
 val Colors.semiDarkText: Color
     @Composable

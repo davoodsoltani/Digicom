@@ -21,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.hads.digikala.R
+import com.hads.digikala.ui.components.IconWithRotate
 import com.hads.digikala.ui.theme.darkText
 import com.hads.digikala.ui.theme.digikalaLightRed
 import com.hads.digikala.ui.theme.localShape
@@ -44,11 +45,9 @@ fun AmazingShowMorItem() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Icon(
+            IconWithRotate(
                 painter = painterResource(id = R.drawable.show_more),
-                contentDescription = "",
-                tint = MaterialTheme.colors.digikalaLightRed,
-                modifier = Modifier.size(40.dp, 40.dp)
+                tint = MaterialTheme.colors.digikalaLightRed
             )
 
             Spacer(modifier = Modifier.height(20.dp))

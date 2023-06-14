@@ -8,8 +8,9 @@ An application similar to Digikala that has all its features.
 <table>
   <tr>
     <td><img src="screenshot/splash.png" width=270 height=480></td>
-    <td><img src="screenshot/home.png" width=270 height=480></td>
-    <td><img src="screenshot/home1.png" width=270 height=480></td>
+    <td><img src="screenshot/1.png" width=270 height=480></td>
+    <td><img src="screenshot/3.png" width=270 height=480></td>
+    <td><img src="screenshot/2.png" width=270 height=480></td>
   </tr>
  </table>
 
@@ -38,7 +39,7 @@ Compose Navigation
 - [x] Add Top Slider
 - [x] Add SearchBar
 - [x] Add Swipe Refresh
-- [ ] Add Other Item Home Page
+- [x] Add Other Item Home Page
 - [ ] Add Category Page
 - [ ] Add Cart Page
 - [ ] Add Profile Page
