@@ -2,15 +2,20 @@ package com.hads.digikala.ui.screens.home
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import com.hads.digikala.utils.Constants
+import com.hads.digikala.utils.LocaleUtils
 import com.hads.digikala.viewmodel.HomeViewModel
 import kotlinx.coroutines.launch
 
@@ -24,6 +29,7 @@ fun Home(
     navController: NavHostController,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
+    LocaleUtils.setLocale(LocalContext.current, Constants.USER_LANGUAGE)
     LaunchedEffect(true) {
         refreshDataFromServer(viewModel)
     }
@@ -44,14 +50,15 @@ fun SwipeRefreshSection(navController: NavHostController, viewModel: HomeViewMod
             }
         }) {
 
-        LazyColumn(modifier = Modifier.fillMaxWidth()) {
+        LazyColumn(modifier = Modifier.fillMaxWidth().padding(bottom = 60.dp)) {
             item { SearchBarSection() }
             item { TopSliderSection() }
             item { ShowCaseSection(navController) }
+            item { AmazingOfferSection(navController) }
         }
     }
 }
 
 private suspend fun refreshDataFromServer(viewModel: HomeViewModel) {
-    viewModel.getSlider()
+    viewModel.getAllDataFromServer()
 }

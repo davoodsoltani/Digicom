@@ -6,6 +6,7 @@ import com.hads.digikala.data.datastore.DataStoreRepository
 import com.hads.digikala.utils.Constants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltViewModel
@@ -23,5 +24,7 @@ class DataStoreViewModel @Inject constructor(
         }
     }
 
-    suspend fun getUserLanguage(): String = repository.getString(USER_LANGUAGE_KEY) ?: Constants.PERSIAN_LANG
+    fun getUserLanguage(): String = runBlocking {
+        repository.getString(USER_LANGUAGE_KEY) ?: Constants.PERSIAN_LANG
+    }
 }

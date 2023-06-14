@@ -17,8 +17,6 @@ fun AppConfig(
 }
 
 private fun getDatastoreVariable(dataStore: DataStoreViewModel) {
-    runBlocking {
         Constants.USER_LANGUAGE = dataStore.getUserLanguage()
         dataStore.saveUserLanguage(Constants.USER_LANGUAGE)
-    }
 }
