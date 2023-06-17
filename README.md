@@ -44,7 +44,7 @@ Compose Navigation
 - [x] Add Other Item Home Page
 - [x] Add Category Page
 - [x] Add RoomDb
-- [x] Add BasketCart Page
+- [x] Add Basket Page
 - [ ] Add Profile Page
 - [ ] .
 - [ ] .
