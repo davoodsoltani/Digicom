@@ -10,11 +10,11 @@ def apiKeyProperties = new Properties()
 apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
 
 android {
-    namespace 'com.hads.digikala'
+    namespace 'com.hads.digicom'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.hads.digikala"
+        applicationId "com.hads.digicom"
         minSdk 24
         targetSdk 33
         versionCode 1
