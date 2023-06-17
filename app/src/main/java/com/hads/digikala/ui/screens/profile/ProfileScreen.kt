@@ -1,4 +1,4 @@
-package com.hads.digikala.ui.screens
+package com.hads.digikala.ui.screens.profile
 
 import android.app.Activity
 import android.content.Intent

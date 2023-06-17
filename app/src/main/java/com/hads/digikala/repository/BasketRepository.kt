@@ -11,30 +11,37 @@ import javax.inject.Inject
 
 class BasketRepository @Inject constructor(
     private val api: BasketApiInterface,
-    private val dao : CartDao
-) :
-    BaseApiResponse() {
+    private val dao: CartDao
+) : BaseApiResponse() {
 
-    suspend fun getAllProducts(): NetworkResult<List<AmazingItem>> =
+    val currentCartItems = dao.getAllItems(CartStatus.CURRENT_CART)
+    val nextCartItems = dao.getAllItems(CartStatus.NEXT_CART)
+
+    val currentCartItemsCount = dao.getCartItemsCount(CartStatus.CURRENT_CART)
+    val nextCartItemsCount = dao.getCartItemsCount(CartStatus.NEXT_CART)
+
+
+    suspend fun getSuggestedItems(): NetworkResult<List<AmazingItem>> =
         safeApiCall {
-            api.getAllProducts()
+            api.getSuggestedItems()
         }
 
-    suspend fun insertCartItem(item: CartItem){
-        dao.insertCartItem(item)
+
+    suspend fun insertCartItem(cart: CartItem) {
+        dao.insertCartItem(cart)
     }
 
-    val currentCartItem = dao.getAllItems(CartStatus.CURRENT_CART)
-
-    suspend fun removeFromCart(item: CartItem){
-        dao.removeFromCart(item)
+    suspend fun removeFromCart(cart: CartItem) {
+        dao.removeFromCart(cart)
     }
 
-    suspend fun changeCountCartItem(id: String, newCount: Int){
+    suspend fun changeCartItemStatus(id: String, newStatus: CartStatus) {
+        dao.changeStatusCart(id, newStatus)
+    }
+
+    suspend fun changeCartItemCount(id: String, newCount: Int) {
         dao.changeCountCartItem(id, newCount)
     }
 
-    suspend fun changeStatusCartItem(id: String, newStatus: CartStatus){
-        dao.changeStatusCartItem(id, newStatus)
-    }
+
 }

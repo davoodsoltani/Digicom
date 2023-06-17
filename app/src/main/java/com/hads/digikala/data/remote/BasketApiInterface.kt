@@ -9,5 +9,5 @@ import retrofit2.http.GET
 interface BasketApiInterface {
 
     @GET("v1/getAllProducts")
-    suspend fun getAllProducts(): Response<ResponseResult<List<AmazingItem>>>
+    suspend fun getSuggestedItems(): Response<ResponseResult<List<AmazingItem>>>
 }

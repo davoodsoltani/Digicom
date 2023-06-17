@@ -24,6 +24,7 @@ import com.hads.digikala.data.model.basket.CartStatus
 import com.hads.digikala.data.model.home.AmazingItem
 import com.hads.digikala.ui.screens.home.MostDiscountedCard
 
+
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SuggestListSection(
@@ -31,9 +32,7 @@ fun SuggestListSection(
 ) {
 
 
-    LaunchedEffect(key1 = true) {
-        viewModel.getAllProducts()
-    }
+    viewModel.getSuggestedItems()
 
     var suggestedList by remember {
         mutableStateOf<List<AmazingItem>>(emptyList())
@@ -48,12 +47,10 @@ fun SuggestListSection(
             suggestedList = suggestedItemResult.data ?: emptyList()
             loading = false
         }
-
         is NetworkResult.Error -> {
             loading = false
             Log.e("3636", "SuggestListSection error : ${suggestedItemResult.message}")
         }
-
         is NetworkResult.Loading -> {
             loading = true
         }
@@ -87,7 +84,7 @@ fun SuggestListSection(
     ) {
 
         for (item in suggestedList) {
-            SuggestionItemCard(item = item){
+            SuggestionItemCard(item){
                 viewModel.insertCartItem(
                     CartItem(
                         it._id,
@@ -100,11 +97,11 @@ fun SuggestListSection(
                         CartStatus.CURRENT_CART
                     )
                 )
-
             }
         }
 
     }
+
 
 
 }

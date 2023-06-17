@@ -29,6 +29,7 @@ import com.hads.digikala.ui.theme.*
 import com.hads.digikala.utils.Constants
 import com.hads.digikala.utils.DigitHelper
 
+
 @Composable
 fun SuggestionItemCard(
     item: AmazingItem,
