@@ -9,6 +9,8 @@ object Constants {
     const val DATASTORE_NAME = "DIGIKALA_NAME"
     const val TIMEOUT_IN_SECOND: Long = 60
     const val API_KEY = BuildConfig.X_API_KEY
+    const val SHOPPING_CART_TABLE = "SHOPPING_CART"
+    const val DATABASE_NAME = "digicom_db"
     var USER_LANGUAGE = PERSIAN_LANG
 
 
