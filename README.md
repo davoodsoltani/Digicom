@@ -45,6 +45,8 @@ Compose Navigation
 - [x] Add Category Page
 - [x] Add RoomDb
 - [x] Add Basket Page
+- [x] Add Login Page
+- [x] Add Register Page
 - [ ] Add Profile Page
 - [ ] .
 - [ ] .
