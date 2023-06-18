@@ -31,7 +31,9 @@ fun SuggestListSection(
 ) {
 
 
-    viewModel.getSuggestedItems()
+    LaunchedEffect(key1 = true) {
+        viewModel.getSuggestedItems()
+    }
 
     var suggestedList by remember {
         mutableStateOf<List<AmazingItem>>(emptyList())
@@ -46,10 +48,12 @@ fun SuggestListSection(
             suggestedList = suggestedItemResult.data ?: emptyList()
             loading = false
         }
+
         is NetworkResult.Error -> {
             loading = false
             Log.e("3636", "SuggestListSection error : ${suggestedItemResult.message}")
         }
+
         is NetworkResult.Loading -> {
             loading = true
         }
@@ -83,7 +87,7 @@ fun SuggestListSection(
     ) {
 
         for (item in suggestedList) {
-            SuggestionItemCard(item){
+            SuggestionItemCard(item) {
                 viewModel.insertCartItem(
                     CartItem(
                         it._id,
@@ -100,7 +104,6 @@ fun SuggestListSection(
         }
 
     }
-
 
 
 }

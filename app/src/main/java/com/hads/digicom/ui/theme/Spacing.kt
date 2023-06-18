@@ -17,7 +17,9 @@ data class Spacing(
     val biggerMedium: Dp = 20.dp,
     val large: Dp = 32.dp,
     val samiLarge: Dp = 24.dp,
-)
+    val extraLarge: Dp = 64.dp,
+
+    )
 
 val localSpacing = compositionLocalOf { Spacing() }
 val MaterialTheme.spacing: Spacing
