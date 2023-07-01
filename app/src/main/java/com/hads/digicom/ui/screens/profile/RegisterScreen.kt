@@ -23,6 +23,7 @@ import com.hads.digicom.data.remote.NetworkResult
 import com.hads.digicom.ui.theme.darkText
 import com.hads.digicom.ui.theme.selectedBottomBar
 import com.hads.digicom.ui.theme.spacing
+import com.hads.digicom.utils.Constants
 import com.hads.digicom.utils.InputValidation
 import com.hads.digicom.utils.InputValidation.isValidPassword
 import com.hads.digicom.viewmodel.DataStoreViewModel
@@ -52,6 +53,8 @@ fun RegisterScreen(
                             dataStore.saveUserToken(user.token)
                             dataStore.saveUserId(user.id)
                             dataStore.saveUserPhoneNumber(user.phone)
+                            Constants.USER_PHONE = user.phone
+                            Constants.USER_TOKEN = user.token
                             dataStore.saveUserPassword(profileViewModel.inputPasswordState)
 
                             profileViewModel.screenState = ProfileScreenState.PROFILE_STATE

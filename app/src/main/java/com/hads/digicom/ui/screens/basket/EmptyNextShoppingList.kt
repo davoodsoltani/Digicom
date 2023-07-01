@@ -25,11 +25,16 @@ import com.hads.digicom.R
 import com.hads.digicom.ui.theme.darkText
 import com.hads.digicom.ui.theme.semiDarkText
 import com.hads.digicom.ui.theme.spacing
+import com.hads.digicom.utils.Constants
 
 @Composable
 fun EmptyNextShoppingList() {
 
     val config = LocalConfiguration.current
+    var verticalArrangement: Arrangement.Vertical = Arrangement.Center
+    if (Constants.USER_TOKEN == "null") {
+        verticalArrangement = Arrangement.Top
+    }
 
     Column(
         modifier = Modifier
@@ -37,7 +42,7 @@ fun EmptyNextShoppingList() {
             .fillMaxWidth()
             .padding(vertical = MaterialTheme.spacing.small),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = verticalArrangement
     ) {
         Image(
             painter = painterResource(id = R.drawable.empty_next_chart),
