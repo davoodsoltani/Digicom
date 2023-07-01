@@ -132,10 +132,7 @@
     <string name="technical_specifications">Technical Specifications</string>
     <string name="review">Review</string>
     <string name="specifications">specifications</string>
-
-
-
-
+    <string name="user_name">Username</string>
 
 
 </resources>
