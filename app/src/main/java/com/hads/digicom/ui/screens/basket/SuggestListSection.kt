@@ -22,6 +22,7 @@ import com.hads.digicom.R
 import com.hads.digicom.data.model.basket.CartItem
 import com.hads.digicom.data.model.basket.CartStatus
 import com.hads.digicom.data.model.home.AmazingItem
+import com.hads.digicom.data.model.home.StoreProduct
 
 
 @OptIn(ExperimentalLayoutApi::class)
@@ -36,7 +37,7 @@ fun SuggestListSection(
     }
 
     var suggestedList by remember {
-        mutableStateOf<List<AmazingItem>>(emptyList())
+        mutableStateOf<List<StoreProduct>>(emptyList())
     }
     var loading by remember {
         mutableStateOf(false)

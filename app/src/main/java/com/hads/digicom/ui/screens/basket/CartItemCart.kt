@@ -415,38 +415,3 @@ fun CartItemCard(
         }
     }
 }
-
-
-@Composable
-private fun DetailRow(
-    icon: Painter,
-    text: String,
-    color: Color,
-    fontStyle: TextStyle
-) {
-    Row(
-        modifier = Modifier
-            .padding(vertical = MaterialTheme.spacing.extraSmall),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-
-        Icon(
-            painter = icon,
-            contentDescription = "",
-            modifier = Modifier
-                .size(16.dp),
-            tint = color,
-        )
-
-        Spacer(modifier = Modifier.width(MaterialTheme.spacing.small))
-
-        Text(
-            text = text,
-            style = fontStyle,
-            fontWeight = FontWeight.SemiBold,
-            color = MaterialTheme.colors.semiDarkText,
-
-            )
-
-    }
-}

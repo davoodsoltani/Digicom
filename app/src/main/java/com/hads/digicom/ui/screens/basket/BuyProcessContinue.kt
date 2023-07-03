@@ -19,11 +19,21 @@ import com.hads.digicom.utils.DigitHelper
 
 @Composable
 fun BuyProcessContinue(
-    price: Long
+    price: Long,
+    shippingCost: Int = 0,
+    onClick: () -> Unit,
 ) {
+
+
+    var title = stringResource(id = R.string.goods_total_price)
+    if (shippingCost > 0) {
+        title = stringResource(id = R.string.final_price)
+    }
+
+
     Card(
         shape = MaterialTheme.roundedShape.extraSmall,
-        elevation = localElevation.current.extraSmall,
+        elevation = MaterialTheme.elevation.extraSmall,
         border = BorderStroke(width = 1.dp, color = Color.LightGray.copy(0.2f))
     ) {
         Row(
@@ -37,7 +47,7 @@ fun BuyProcessContinue(
             verticalAlignment = Alignment.CenterVertically
         ) {
             Button(
-                onClick = {},
+                onClick = onClick,
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.digicomRed),
                 shape = MaterialTheme.roundedShape.small
             ) {
@@ -59,14 +69,14 @@ fun BuyProcessContinue(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = stringResource(id = R.string.goods_total_price),
+                    text = title,
                     color = MaterialTheme.colors.semiDarkText,
                     style = MaterialTheme.typography.h6,
                 )
 
                 Row() {
                     Text(
-                        text = DigitHelper.digitByLocateAndSeparator(price.toString()),
+                        text = DigitHelper.digitByLocateAndSeparator((price + shippingCost).toString()),
                         style = MaterialTheme.typography.body2,
                         fontWeight = FontWeight.SemiBold
                     )

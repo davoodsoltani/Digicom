@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 import com.hads.digicom.R
 import com.hads.digicom.data.model.home.AmazingItem
+import com.hads.digicom.data.model.home.StoreProduct
 import com.hads.digicom.ui.theme.*
 import com.hads.digicom.utils.Constants
 import com.hads.digicom.utils.DigitHelper
@@ -32,8 +33,8 @@ import com.hads.digicom.utils.DigitHelper
 
 @Composable
 fun SuggestionItemCard(
-    item: AmazingItem,
-    onAddClick: (AmazingItem) -> Unit
+    item: StoreProduct,
+    onAddClick: (StoreProduct) -> Unit
 ) {
 
     Card(

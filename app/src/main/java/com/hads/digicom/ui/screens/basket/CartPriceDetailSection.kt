@@ -17,9 +17,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.hads.digicom.R
 import com.hads.digicom.ui.theme.darkText
 import com.hads.digicom.ui.theme.spacing
+import com.hads.digicom.R
 import com.hads.digicom.data.model.basket.CartDetails
 import com.hads.digicom.ui.theme.digicomLightRed
 import com.hads.digicom.utils.DigitHelper
@@ -28,8 +28,15 @@ import com.hads.digicom.utils.DigitHelper.digitByLocateAndSeparator
 
 @Composable
 fun CartPriceDetailSection(
-    item: CartDetails
+    item: CartDetails,
+    shippingCost: Int = 0
 ) {
+
+    var title = stringResource(id = R.string.basket_summary)
+    if (shippingCost > 0) {
+        title = stringResource(id = R.string.cost_details)
+    }
+
 
     Column(
         modifier = Modifier.padding(
@@ -45,7 +52,7 @@ fun CartPriceDetailSection(
             modifier = Modifier.fillMaxWidth()
         ) {
             Text(
-                text = stringResource(R.string.basket_summary),
+                text = title,
                 style = MaterialTheme.typography.h4,
                 color = MaterialTheme.colors.darkText
             )
@@ -80,26 +87,35 @@ fun CartPriceDetailSection(
 
         Spacer(modifier = Modifier.height(MaterialTheme.spacing.medium))
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Start,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(
-                text = stringResource(R.string.dot_bullet),
-                color = Color.Gray,
-                style = MaterialTheme.typography.h2,
-                modifier = Modifier.padding(MaterialTheme.spacing.extraSmall)
+
+        if(shippingCost > 0){
+            Divider(
+                Modifier
+                    .padding(
+                        vertical = MaterialTheme.spacing.medium,
+                        horizontal = MaterialTheme.spacing.small
+                    )
+                    .alpha(0.6f),
+                color = Color.LightGray
+            )
+            PriceRow(
+                stringResource(id = R.string.delivery_cost),
+                digitByLocateAndSeparator(shippingCost.toString())
             )
 
-            Text(
-                text = stringResource(R.string.shipping_cost_alert),
-                style = MaterialTheme.typography.h6,
-                color = Color.Gray,
-                modifier = Modifier.weight(1f)
+            FirstDotTextRow(stringResource(id = R.string.shipping_cost_last_alert))
+
+            PriceRow(
+                stringResource(id = R.string.final_price),
+                digitByLocateAndSeparator((item.payablePrice + shippingCost).toString())
             )
+
+        }else{
+            FirstDotTextRow(stringResource(id = R.string.shipping_cost_alert))
         }
+
+
+
 
         Divider(
             Modifier
@@ -116,6 +132,34 @@ fun CartPriceDetailSection(
 
 
 }
+
+
+@Composable
+fun FirstDotTextRow(
+    text: String
+){
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = stringResource(R.string.dot_bullet),
+            color = Color.Gray,
+            style = MaterialTheme.typography.h2,
+            modifier = Modifier.padding(MaterialTheme.spacing.extraSmall)
+        )
+
+        Text(
+            text = text,
+            style = MaterialTheme.typography.h6,
+            color = Color.Gray,
+            modifier = Modifier.weight(1f)
+        )
+    }
+}
+
 
 @Composable
 private fun DigiClubScore(

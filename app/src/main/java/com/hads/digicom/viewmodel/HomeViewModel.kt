@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.hads.digicom.data.model.home.AmazingItem
 import com.hads.digicom.data.model.home.MainCategory
 import com.hads.digicom.data.model.home.Slider
+import com.hads.digicom.data.model.home.StoreProduct
 import com.hads.digicom.data.remote.NetworkResult
 import com.hads.digicom.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +24,7 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
     val centerBanner = MutableStateFlow<NetworkResult<List<Slider>>>(NetworkResult.Loading())
     val bestsellerProducts = MutableStateFlow<NetworkResult<List<AmazingItem>>>(NetworkResult.Loading())
     val mostVisitedItems = MutableStateFlow<NetworkResult<List<AmazingItem>>>(NetworkResult.Loading())
-    val mostFavoriteItems = MutableStateFlow<NetworkResult<List<AmazingItem>>>(NetworkResult.Loading())
+    val mostFavoriteItems = MutableStateFlow<NetworkResult<List<StoreProduct>>>(NetworkResult.Loading())
     val mostDiscountedItems = MutableStateFlow<NetworkResult<List<AmazingItem>>>(NetworkResult.Loading())
 
     suspend fun getAllDataFromServer() {

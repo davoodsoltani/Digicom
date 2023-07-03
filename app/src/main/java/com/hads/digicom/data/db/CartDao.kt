@@ -32,5 +32,6 @@ interface CartDao {
     @Query("select total(count) as count from shopping_cart where cartStatus=:status")
     fun getCartItemsCount(status: CartStatus): Flow<Int>
 
-
+    @Query("DELETE FROM shopping_cart where cartStatus=:status")
+    fun deleteAllItems(status: CartStatus)
 }

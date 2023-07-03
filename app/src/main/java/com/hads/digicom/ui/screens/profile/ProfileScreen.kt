@@ -30,7 +30,7 @@ import com.hads.digicom.utils.Constants
 import com.hads.digicom.utils.DigitHelper.digitByLocate
 import com.hads.digicom.viewmodel.DataStoreViewModel
 import com.hads.digicom.viewmodel.ProfileViewModel
-import ir.truelearn.digikala.ui.screens.profile.MenuRowItem
+import com.hads.digicom.ui.screens.profile.MenuRowItem
 
 @Composable
 fun ProfileScreen(

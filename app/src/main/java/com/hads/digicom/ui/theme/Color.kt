@@ -50,6 +50,17 @@ val Colors.digicomLightRed: Color
     @Composable
     get() = Color(0xffef4056)
 
+val Colors.Green : Color
+    @Composable
+    get() = Color(0xFF00A049)
+val Colors.Gold : Color
+    @Composable
+    get() = Color(0xFFf9bc01)
+
+val Colors.grayAlpha: Color
+    @Composable
+    get() = Color(0xFFc1c2c6)
+
 val Colors.digicomLightRedText: Color
     @Composable
     get() = if (isLight) Color(0xffef4056) else Color(0xFFFFFFFF)

@@ -4,6 +4,7 @@ import com.hads.digicom.data.db.CartDao
 import com.hads.digicom.data.model.basket.CartItem
 import com.hads.digicom.data.model.basket.CartStatus
 import com.hads.digicom.data.model.home.AmazingItem
+import com.hads.digicom.data.model.home.StoreProduct
 import com.hads.digicom.data.remote.BaseApiResponse
 import com.hads.digicom.data.remote.BasketApiInterface
 import com.hads.digicom.data.remote.NetworkResult
@@ -21,7 +22,7 @@ class BasketRepository @Inject constructor(
     val nextCartItemsCount = dao.getCartItemsCount(CartStatus.NEXT_CART)
 
 
-    suspend fun getSuggestedItems(): NetworkResult<List<AmazingItem>> =
+    suspend fun getSuggestedItems(): NetworkResult<List<StoreProduct>> =
         safeApiCall {
             api.getSuggestedItems()
         }
@@ -33,6 +34,11 @@ class BasketRepository @Inject constructor(
 
     suspend fun removeFromCart(cart: CartItem) {
         dao.removeFromCart(cart)
+    }
+
+
+    suspend fun deleteAllItems() {
+        dao.deleteAllItems(CartStatus.CURRENT_CART)
     }
 
     suspend fun changeCartItemStatus(id: String, newStatus: CartStatus) {

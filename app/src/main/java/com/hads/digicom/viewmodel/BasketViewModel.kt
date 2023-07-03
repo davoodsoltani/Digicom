@@ -6,6 +6,7 @@ import com.hads.digicom.data.model.basket.CartDetails
 import com.hads.digicom.data.model.basket.CartItem
 import com.hads.digicom.data.model.basket.CartStatus
 import com.hads.digicom.data.model.home.AmazingItem
+import com.hads.digicom.data.model.home.StoreProduct
 import com.hads.digicom.data.remote.NetworkResult
 import com.hads.digicom.repository.BasketRepository
 import com.hads.digicom.ui.screens.basket.BasketScreenState
@@ -22,13 +23,15 @@ import javax.inject.Inject
 class BasketViewModel @Inject constructor(private val repository: BasketRepository) : ViewModel() {
 
 
-    val suggestedList = MutableStateFlow<NetworkResult<List<AmazingItem>>>(NetworkResult.Loading())
+    val suggestedList = MutableStateFlow<NetworkResult<List<StoreProduct>>>(NetworkResult.Loading())
     val cartDetail = MutableStateFlow(CartDetails(0, 0, 0, 0))
 
 
     private val _currentCartItems: MutableStateFlow<BasketScreenState<List<CartItem>>> =
         MutableStateFlow(BasketScreenState.Loading)
     val currentCartItems: StateFlow<BasketScreenState<List<CartItem>>> = _currentCartItems
+
+    val ourCartItems: MutableStateFlow<List<CartItem>> =  MutableStateFlow(emptyList())
 
     private val _nextCartItems: MutableStateFlow<BasketScreenState<List<CartItem>>> =
         MutableStateFlow(BasketScreenState.Loading)
@@ -43,7 +46,7 @@ class BasketViewModel @Inject constructor(private val repository: BasketReposito
             launch {
                 repository.currentCartItems.collectLatest { cartItems ->
                     _currentCartItems.emit(BasketScreenState.Success(cartItems))
-
+                    ourCartItems.emit(cartItems)
                 }
             }
             launch {
@@ -96,6 +99,12 @@ class BasketViewModel @Inject constructor(private val repository: BasketReposito
         }
     }
 
+    fun deleteAllItems() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllItems()
+        }
+    }
+
     fun changeCartItemCount(id: String, newCount: Int) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.changeCartItemCount(id, newCount)
@@ -110,4 +119,3 @@ class BasketViewModel @Inject constructor(private val repository: BasketReposito
 
 
 }
-

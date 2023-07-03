@@ -3,6 +3,7 @@ package com.hads.digicom.repository
 import com.hads.digicom.data.model.home.AmazingItem
 import com.hads.digicom.data.model.home.MainCategory
 import com.hads.digicom.data.model.home.Slider
+import com.hads.digicom.data.model.home.StoreProduct
 import com.hads.digicom.data.remote.BaseApiResponse
 import com.hads.digicom.data.remote.HomeApiInterface
 import com.hads.digicom.data.remote.NetworkResult
@@ -43,7 +44,7 @@ class HomeRepository @Inject constructor(private val api: HomeApiInterface) : Ba
         safeApiCall {
             api.getMostVisitedProducts()
         }
-    suspend fun getMostFavoriteProducts(): NetworkResult<List<AmazingItem>> =
+    suspend fun getMostFavoriteProducts(): NetworkResult<List<StoreProduct>> =
         safeApiCall {
             api.getMostFavoriteProducts()
         }

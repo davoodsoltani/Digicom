@@ -1,4 +1,4 @@
-package ir.truelearn.digikala.ui.screens.profile
+package com.hads.digicom.ui.screens.profile
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

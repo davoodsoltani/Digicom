@@ -19,6 +19,7 @@ import com.hads.digicom.ui.theme.spacing
 import com.hads.digicom.viewmodel.HomeViewModel
 import com.hads.digicom.R
 import com.hads.digicom.data.model.home.AmazingItem
+import com.hads.digicom.data.model.home.StoreProduct
 import com.hads.digicom.ui.theme.DarkCyan
 import com.hads.digicom.ui.theme.darkText
 
@@ -27,7 +28,7 @@ fun MostFavoriteProductSection(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     var mostFavoriteList by remember {
-        mutableStateOf<List<AmazingItem>>(emptyList())
+        mutableStateOf<List<StoreProduct>>(emptyList())
     }
     var loading by remember {
         mutableStateOf(false)

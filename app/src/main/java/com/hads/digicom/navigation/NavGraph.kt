@@ -8,8 +8,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.hads.digicom.ui.screens.basket.BasketScreen
 import com.hads.digicom.ui.screens.category.CategoryScreen
+import com.hads.digicom.ui.screens.checkout.CheckoutScreen
+import com.hads.digicom.ui.screens.checkout.ConfirmPurchaseScreen
 import com.hads.digicom.ui.screens.home.HomeScreen
 import com.hads.digicom.ui.screens.home.WebPageScreen
+import com.hads.digicom.ui.screens.product_detail.NewCommentScreen
+import com.hads.digicom.ui.screens.product_detail.ProductDescriptionScreen
+import com.hads.digicom.ui.screens.product_detail.ProductDetailScreen
+import com.hads.digicom.ui.screens.product_detail.ProductTechnicalFeaturesScreen
 import com.hads.digicom.ui.screens.profile.ProfileScreen
 import com.hads.digicom.ui.screens.splash.SplashScreen
 
@@ -34,6 +40,130 @@ fun SetupNavGraph(navController: NavHostController) {
         composable(route = Screen.Category.route) {
             CategoryScreen(navController = navController)
         }
+        composable(route = Screen.Checkout.route) {
+            CheckoutScreen(navController = navController)
+        }
+
+        composable(route = Screen.ConfirmPurchase.route + "/{orderId}/{orderPrice}",
+            arguments = listOf(
+                navArgument("orderId") {
+                    type = NavType.StringType
+                    defaultValue = " "
+                    nullable = true
+                },
+                navArgument("orderPrice") {
+                    type = NavType.StringType
+                    defaultValue = " "
+                    nullable = true
+                }
+            )
+        ) {
+            it.arguments!!.getString("orderId")?.let { orderId ->
+                it.arguments!!.getString("orderPrice")?.let { orderPrice ->
+                    ConfirmPurchaseScreen(
+                        navController = navController,
+                        orderId = orderId,
+                        orderPrice = orderPrice
+                    )
+                }
+            }
+
+
+        }
+
+
+
+
+        composable(route = Screen.NewComment.route + "?productId={productId}?productName={productName}?imageUrl={imageUrl}",
+            arguments = listOf(
+                navArgument("productId") {
+                    type = NavType.StringType
+                    defaultValue = " "
+                    nullable = true
+                },
+                navArgument("productName") {
+                    type = NavType.StringType
+                    defaultValue = " "
+                    nullable = true
+                },
+                navArgument("imageUrl") {
+                    type = NavType.StringType
+                    defaultValue = " "
+                    nullable = true
+                }
+            )
+        ) {
+            it.arguments!!.getString("productId")?.let { productId ->
+                it.arguments!!.getString("productName")?.let { productName ->
+                    it.arguments!!.getString("imageUrl")?.let { imageUrl ->
+                        NewCommentScreen(
+                            navController = navController,
+                            productId = productId,
+                            productName = productName,
+                            imageUrl = imageUrl
+                        )
+                    }
+                }
+            }
+
+
+        }
+
+
+        composable(route = Screen.ProductDetail.route + "/{productId}",
+            arguments = listOf(
+                navArgument("productId") {
+                    type = NavType.StringType
+                    defaultValue = " "
+                    nullable = true
+                }
+            )
+        ) {
+            it.arguments!!.getString("productId")?.let { productId ->
+                ProductDetailScreen(
+                    navController = navController,
+                    productId = productId
+                )
+            }
+
+        }
+
+        composable(route = Screen.ProductDescription.route + "/{description}",
+            arguments = listOf(
+                navArgument("description") {
+                    type = NavType.StringType
+                    defaultValue = " "
+                    nullable = true
+                }
+            )
+        ) {
+            it.arguments!!.getString("description")?.let { description ->
+                ProductDescriptionScreen(
+                    navController = navController,
+                    description = description
+                )
+            }
+
+        }
+
+        composable(route = Screen.ProductTechnicalFeatures.route + "/{jsonString}",
+            arguments = listOf(
+                navArgument("jsonString") {
+                    type = NavType.StringType
+                    defaultValue = " "
+                    nullable = true
+                }
+            )
+        ) {
+            it.arguments!!.getString("jsonString")?.let { jsonString ->
+                ProductTechnicalFeaturesScreen(
+                    navController = navController,
+                    jsonString = jsonString
+                )
+            }
+
+        }
+
 
         composable(
             route = Screen.WebView.route + "?url={url}",
@@ -48,5 +178,6 @@ fun SetupNavGraph(navController: NavHostController) {
                 WebPageScreen(navController = navController, url = url)
             }
         }
+
     }
 }

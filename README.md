@@ -47,7 +47,8 @@ Compose Navigation
 - [x] Add Basket Page
 - [x] Add Login Page
 - [x] Add Register Page
-- [ ] Add Profile Page
-- [ ] .
+- [x] Add Profile Page
+- [x] Add Login Page
+- [x] Add Register Page
 - [ ] .
 - [ ] .

@@ -31,6 +31,7 @@ import androidx.navigation.NavController
 import com.hads.digicom.R
 import com.hads.digicom.data.model.basket.CartItem
 import com.hads.digicom.data.model.basket.CartStatus
+import com.hads.digicom.navigation.Screen
 import com.hads.digicom.ui.theme.darkText
 import com.hads.digicom.ui.theme.spacing
 import com.hads.digicom.utils.Constants
@@ -121,7 +122,13 @@ fun ShoppingCart(
                     .align(Alignment.BottomCenter)
                     .padding(bottom = 60.dp)
             ) {
-                BuyProcessContinue(cartDetail.payablePrice)
+                BuyProcessContinue(cartDetail.payablePrice){
+                    if (Constants.USER_TOKEN == null){
+                        navController.navigate(Screen.Profile.route)
+                    }else{
+                        navController.navigate(Screen.Checkout.route)
+                    }
+                }
             }
         }
 
