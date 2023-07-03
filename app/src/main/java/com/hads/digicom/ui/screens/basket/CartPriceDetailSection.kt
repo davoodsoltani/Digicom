@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -22,6 +23,7 @@ import com.hads.digicom.ui.theme.spacing
 import com.hads.digicom.R
 import com.hads.digicom.data.model.basket.CartDetails
 import com.hads.digicom.ui.theme.digicomLightRed
+import com.hads.digicom.utils.Constants
 import com.hads.digicom.utils.DigitHelper
 import com.hads.digicom.utils.DigitHelper.digitByLocateAndSeparator
 
@@ -254,7 +256,7 @@ private fun PriceRow(
             )
 
             Icon(
-                painter = painterResource(id = R.drawable.toman),
+                painter = currencyLogoChangeByLanguage(),
                 contentDescription = "",
                 tint = color,
                 modifier = Modifier
@@ -263,5 +265,13 @@ private fun PriceRow(
             )
         }
 
+    }
+}
+@Composable
+private fun currencyLogoChangeByLanguage(): Painter {
+    return if (Constants.USER_LANGUAGE == Constants.ENGLISH_LANG) {
+        painterResource(id = R.drawable.dollar)
+    } else {
+        painterResource(id = R.drawable.toman)
     }
 }

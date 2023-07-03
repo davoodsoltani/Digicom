@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -18,6 +19,7 @@ import androidx.navigation.NavController
 import com.hads.digicom.R
 import com.hads.digicom.data.model.product_detail.ProductDetail
 import com.hads.digicom.ui.theme.*
+import com.hads.digicom.utils.Constants
 import com.hads.digicom.utils.DigitHelper
 import com.hads.digicom.utils.DigitHelper.applyDiscount
 
@@ -113,7 +115,7 @@ fun ProductDetailBottomBar(
                     )
 
                     Image(
-                        painter = painterResource(id = R.drawable.toman),
+                        painter = currencyLogoChangeByLanguage(),
                         contentDescription = "",
                         modifier = Modifier
                             .size(MaterialTheme.spacing.samiLarge)
@@ -128,4 +130,12 @@ fun ProductDetailBottomBar(
     }
 
 
+}
+@Composable
+private fun currencyLogoChangeByLanguage(): Painter {
+    return if (Constants.USER_LANGUAGE == Constants.ENGLISH_LANG) {
+        painterResource(id = R.drawable.dollar)
+    } else {
+        painterResource(id = R.drawable.toman)
+    }
 }

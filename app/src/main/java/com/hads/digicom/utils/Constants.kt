@@ -13,7 +13,7 @@ object Constants {
     const val IV = BuildConfig.IV
     const val SHOPPING_CART_TABLE = "SHOPPING_CART"
     const val DATABASE_NAME = "digicom_db"
-    var USER_LANGUAGE = PERSIAN_LANG
+    var USER_LANGUAGE = ENGLISH_LANG
     var USER_TOKEN = "USER_TOKEN"
     var USER_ID = "USER_ID"
     var USER_PHONE = "USER_PHONE"

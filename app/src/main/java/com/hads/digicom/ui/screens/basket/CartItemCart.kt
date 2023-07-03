@@ -29,6 +29,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.hads.digicom.data.model.basket.CartItem
 import com.hads.digicom.data.model.basket.CartStatus
 import com.hads.digicom.ui.theme.*
+import com.hads.digicom.utils.Constants
 import com.hads.digicom.utils.DigitHelper.digitByLocateAndSeparator
 import com.hads.digicom.viewmodel.BasketViewModel
 
@@ -349,7 +350,7 @@ fun CartItemCard(
                         )
 
                         Icon(
-                            painter = painterResource(id = R.drawable.toman),
+                            painter = currencyLogoChangeByLanguage(),
                             contentDescription = "",
                             modifier = Modifier
                                 .size(24.dp)
@@ -413,5 +414,14 @@ fun CartItemCard(
 
 
         }
+    }
+}
+
+@Composable
+private fun currencyLogoChangeByLanguage(): Painter {
+    return if (Constants.USER_LANGUAGE == Constants.ENGLISH_LANG) {
+        painterResource(id = R.drawable.dollar)
+    } else {
+        painterResource(id = R.drawable.toman)
     }
 }
